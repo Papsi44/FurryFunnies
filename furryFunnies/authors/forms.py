@@ -39,20 +39,7 @@ class AuthorBaseForm(forms.ModelForm):
                 'invalid': 'Please enter a valid number.',
             },
         }
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #
-    #     self.fields['first_name'].widget.attrs['placeholder'] = "Enter your first name..."
-    #     self.fields['first_name'].label = "First Name:"
-    #
-    #     self.fields['last_name'].widget.attrs['placeholder'] = "Enter your last name..."
-    #     self.fields['last_name'].label = "Last Name:"
-    #
-    #     self.fields['passcode'].widget.attrs['placeholder'] = "Enter 6 digits..."
-    #     self.fields['passcode'].label = "Passcode:"
-    #
-    #     self.fields['pets_number'].widget.attrs['placeholder'] = "Enter the number of your pets..."
-    #     self.fields['pets_number'].label = "Pets Number:"
+
 
 class AuthorCreateForm(AuthorBaseForm):
     pass
