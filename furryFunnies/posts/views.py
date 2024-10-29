@@ -5,10 +5,13 @@ from furryFunnies.utils import get_user_obj
 
 
 def create_post(request):
+    author = get_user_obj()
     form = PostAddForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
-            form.save()
+            post = form.save(False)
+            post.author = author
+            post.save()
             return redirect('dashboard')
 
     context = {

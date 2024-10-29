@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 
+from furryFunnies.posts.models import Post
 from furryFunnies.utils import get_user_obj
 
 
@@ -13,10 +14,13 @@ def index(request):
 
 def dashboard(request):
     author = get_user_obj()
-    if not author:
-        return redirect('index')
+    if request.method == "GET":
+        if not author:
+            return redirect('index')
+    posts = Post.objects.filter(author=author)
     context = {
-        'author': author
+        'author': author,
+        'posts': posts
     }
     return render(request, 'common/dashboard.html', context)
 
