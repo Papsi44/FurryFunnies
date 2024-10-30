@@ -1,5 +1,6 @@
 from django import forms
 
+from furryFunnies.mixins import ReadOnlyMixin
 from furryFunnies.posts.models import Post
 
 
@@ -47,3 +48,10 @@ class PostAddForm(PostBaseForm):
     #     }
     # }
 
+
+class PostEditForm(PostBaseForm):
+    pass
+
+
+class PostDeleteForm(ReadOnlyMixin, PostBaseForm):
+    read_only_fields = ['title', 'image_url', 'content']
