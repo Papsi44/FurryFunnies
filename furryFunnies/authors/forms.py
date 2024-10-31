@@ -43,3 +43,31 @@ class AuthorBaseForm(forms.ModelForm):
 
 class AuthorCreateForm(AuthorBaseForm):
     pass
+
+
+class AuthorEditForm(forms.ModelForm):
+    class Meta:
+        model = Author
+        fields = "first_name", "last_name", "pets_number", 'info', 'image_url'
+        labels = {
+            'first_name': 'First Name:',
+            'last_name': 'Last Name:',
+            'pets_number': 'Pets Number:',
+            'info': 'info:',
+            'image_url': 'Profile Image URL:'
+        }
+        error_messages = {
+            'first_name': {
+                'required': 'Please enter your first name.',
+                'min_length': 'First name must be at least 4 characters long.',
+            },
+            'last_name': {
+                'required': 'Please enter your last name.',
+                'min_length': 'Last name must be at least 2 characters long.',
+            }
+        }
+class AuthorDeleteForm(AuthorBaseForm):
+    pass
+
+class AuthorDetailsForm(AuthorBaseForm):
+    pass
